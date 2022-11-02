@@ -1,0 +1,27 @@
+#todo-input{
+    font-family: monospace;
+}
+.delete{
+    width: 40px;
+    height: 30px;
+    font-size: 12px;
+}
+ul{
+    list-style: circle;
+}
+
+ul > li{
+    cursor: pointer;
+}
+
+span.actions{
+    visibility: hidden;
+}
+
+li:hover span.actions{
+    visibility: visible;
+}
+
+li:hover{
+    background-color: #b7b7b752;
+}
