@@ -25,3 +25,12 @@ li:hover span.actions{
 li:hover{
     background-color: #b7b7b752;
 }
+
+.emptyMessage{
+    color: yellow;
+    margin-top: 50px;
+}
+
+#todos-box{
+    text-align: center;
+}

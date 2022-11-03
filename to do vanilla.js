@@ -17,17 +17,27 @@ class todo{
  
 
     render(){
-       const todosOutput = document.createElement('ul');
+       if(this.todos.length == 0){
+        const emptyMassage = document.createElement('h5');
 
-       todosOutput.classList.add('mt-5', 'text-white' , 'w-100');
-       todosOutput.id = 'todo-list';
-       
-       for(const todo of this.todos){
-         todosOutput.append(this.renderTodos(todo));
+        emptyMassage.textContent = '"Please add to do"';
+        emptyMassage.classList.add('emptyMessage');
+
+        this.todosBox.append(emptyMassage)
+        
+       }else{
+        const todosOutput = document.createElement('ul');
+
+        todosOutput.classList.add('mt-5', 'text-white' , 'w-100');
+        todosOutput.id = 'todo-list';
+        
+        for(const todo of this.todos){
+          todosOutput.append(this.renderTodos(todo));
+        }
+ 
+        this.todosBox.innerText = '';
+        this.todosBox.append(todosOutput);
        }
-
-       this.todosBox.innerText = '';
-       this.todosBox.append(todosOutput);
     }
 
 
