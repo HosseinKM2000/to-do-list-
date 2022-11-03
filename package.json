@@ -4,7 +4,7 @@
   "description": "",
   "main": "to do vanilla.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server -p 8000 -c-1"
   },
   "author": "",
   "license": "ISC"
