@@ -5,6 +5,8 @@ class todo{
       this.todoInput = document.getElementById(todoInputId);
       this.todosBox = document.getElementById(todoListId);
       this.todos = [];
+      this.localStorage = window.localStorage;
+      this.loadList();
 
       this.todoInput.addEventListener('keyup', (e) => {
         if(e.keyCode == KEY_ENTER){
@@ -71,7 +73,9 @@ class todo{
     addtodo(){
       const todo = this.todoInput.value;
       this.todos.push(todo);
+      this.saveList();
       this.render();
+      this.todoInput.value = '';
     }
 
     deleteTodo(e){
@@ -82,6 +86,20 @@ class todo{
   
         liElement.remove()
         this.todos.splice(eimIndex,1);
+        this.saveList();
+      }
+    }
+
+
+    saveList(){
+      const str = JSON.stringify(this.todos);
+      this.localStorage.setItem('todos',str);
+    }
+
+    loadList(){
+      const todos = this.localStorage.getItem('todos');
+      if(todos){
+        this.todos = JSON.parse(todos);
       }
     }
 }
