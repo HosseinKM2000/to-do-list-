@@ -34,3 +34,8 @@ li:hover{
 #todos-box{
     text-align: center;
 }
+li > p{
+    margin: 0px;
+    font-family: system-ui;
+    font-weight: 600;
+}

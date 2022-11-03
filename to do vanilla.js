@@ -44,18 +44,23 @@ class todo{
 
     renderTodos(todo){
       const li = document.createElement('li');
+      const p = document.createElement('p');
       const span = document.createElement('span');
       const delet_ = document.createElement('a');
+
+      delet_.addEventListener('click' , (e) => {
+        this.deleteTodo(e);
+      })
 
       li.classList.add('mb-2', 'd-flex', 'justify-content-between', 'border-1', 'border-light', 'border', 'p-1');
       span.classList.add('actions');
       delet_.classList.add('delete','d-flex', 'justify-content-center', 'align-items-center' ,'btn', 'btn-secondary');
       
       delet_.innerText = 'Delete';
-      li.innerText = todo;
+      p.innerText = todo;
 
       span.append(delet_);
-      li.append(span);
+      li.append(p,span);
 
       return li ;
     }
@@ -67,6 +72,17 @@ class todo{
       const todo = this.todoInput.value;
       this.todos.push(todo);
       this.render();
+    }
+
+    deleteTodo(e){
+      if(confirm('Are you shure?')){
+        const liElement = e.target.closest('li');
+        const pValue = liElement.children[0].outerText;
+        const eimIndex  = this.todos.indexOf(pValue.toString())
+  
+        liElement.remove()
+        this.todos.splice(eimIndex,1);
+      }
     }
 }
 
